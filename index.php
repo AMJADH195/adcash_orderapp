@@ -49,27 +49,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-          </ul>
-        </div> -->
+        
       </nav>
 
       <div class="container-fluid">
@@ -87,7 +67,7 @@
           <form id="fupForm" name="form1" method="POST" action="process.php">
             <div class="form-group">
               <label for="username">User:</label>
-              <select name="user" class="form-control" id="username"> 
+              <select name="user" class="form-control" id="username" > 
                         <option value=""> SELECT USER </option> 
                         <?php
                             $conn=$db_handle->connectDB();
@@ -101,7 +81,7 @@
             </div>
             <div class="form-group">
               <label for="pwd">Product:</label>
-              <select name="product" class="form-control" id="product">
+              <select name="product" class="form-control" id="product" >
                 <option value="">SELECT PRODUCT</option>
                 <?php
 
@@ -119,10 +99,10 @@
             </div>
             <div class="form-group">
               <label for="pwd">Quantity:</label>
-              <input type="text" class="form-control" id="quantity" placeholder="Quantity" name="quantity">
+              <input type="text" class="form-control" id="quantity" placeholder="Quantity" name="quantity" >
             </div>
   
-            <input type="submit" name="save" class="btn btn-primary" value="Add" id="submit">
+            <input type="submit" name="save" class="btn btn-primary" value="Add" id="submit" >
           </form>
       </div>
             
@@ -147,6 +127,8 @@
         var product= $("#product").val();
         var quantity = $("#quantity").val();
 
+        if (user_name!="" && product!="" && quantity!="")
+         {
 
         $.ajax({
             type: "POST",
@@ -163,6 +145,11 @@
                 }
             }
         });
+        }
+        else
+        {
+          alert("All input feilds must contain values")
+        }
 
 
       });
