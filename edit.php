@@ -152,7 +152,8 @@
         var quantity = $("#quantity").val();
         var id=$("#idfeild").val();
 
-
+        if (user_name!="" && product!="" && quantity!="")
+         {
         $.ajax({
             type: "POST",
             url: "update_order.php",
@@ -169,6 +170,11 @@
                 }
             }
         });
+      }
+      else
+      {
+        alert("All input feild must contain values");
+      }
 
 
       });
